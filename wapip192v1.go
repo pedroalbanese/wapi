@@ -10,7 +10,7 @@ import (
 var initonce sync.Once
 var wapip192v1 *elliptic.CurveParams
 
-func initWAPIP192v1() {
+func initP192() {
 	wapip192v1 = new(elliptic.CurveParams)
 	wapip192v1.P, _ = new(big.Int).SetString("bdb6f4fe3e8b1d9e0da8c0d46f4c318cefe4afe3b6b8551f", 16)
 	wapip192v1.N, _ = new(big.Int).SetString("bdb6f4fe3e8b1d9e0da8c0d40fc962195dfae76f56564677", 16)
@@ -20,7 +20,7 @@ func initWAPIP192v1() {
 	wapip192v1.BitSize = 192
 }
 
-func WAPIP192v1() elliptic.Curve {
-	initonce.Do(initWAPIP192v1)
+func P192() elliptic.Curve {
+	initonce.Do(initP192)
 	return wapip192v1
 }
